@@ -17,161 +17,111 @@ export default function About() {
     const noteRef = useRef<HTMLParagraphElement>(null);
     const buttonsRef = useRef<HTMLDivElement>(null);
 
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
-                defaults: { ease: 'power3.out' }
+                defaults: { ease: 'power2.out' }
             });
 
-            // Profile image animation - scale + blur effect
+            // Profile image animation - simple fade and scale
             tl.fromTo(
                 imageRef.current,
                 {
-                    scale: 0.85,
-                    opacity: 0,
-                    filter: 'blur(10px)'
+                    scale: 0.9,
+                    opacity: 0
                 },
                 {
                     scale: 1,
                     opacity: 1,
-                    filter: 'blur(0px)',
-                    duration: 0.7,
-                    ease: 'expo.out'
+                    duration: 0.6
                 }
             );
 
-            // Name/title animation - fade in with upward motion
+            // Name/title animation - simple fade up
             tl.fromTo(
                 nameRef.current,
                 {
-                    y: 30,
-                    opacity: 0,
-                    filter: 'blur(6px)'
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    filter: 'blur(0px)',
-                    duration: 0.5
-                },
-                '-=0.4'
-            );
-
-            // Contact details - staggered animation
-            tl.fromTo(
-                contactRef.current?.children || [],
-                {
                     y: 20,
-                    opacity: 0,
-                    filter: 'blur(4px)'
+                    opacity: 0
                 },
                 {
                     y: 0,
                     opacity: 1,
-                    filter: 'blur(0px)',
-                    duration: 0.4,
-                    stagger: 0.06
+                    duration: 0.4
                 },
                 '-=0.3'
             );
 
-            // Description text - fade in with delay
+            // Contact details - staggered fade
             tl.fromTo(
-                descriptionRef.current,
+                contactRef.current?.children || [],
                 {
-                    y: 20,
-                    opacity: 0,
-                    filter: 'blur(6px)'
+                    opacity: 0
                 },
                 {
-                    y: 0,
                     opacity: 1,
-                    filter: 'blur(0px)',
-                    duration: 0.5
+                    duration: 0.3,
+                    stagger: 0.05
                 },
                 '-=0.2'
             );
 
-            // Social icons - staggered reveal
+            // Description text - simple fade
+            tl.fromTo(
+                descriptionRef.current,
+                {
+                    opacity: 0
+                },
+                {
+                    opacity: 1,
+                    duration: 0.4
+                },
+                '-=0.2'
+            );
+
+            // Social icons - staggered fade
             tl.fromTo(
                 socialRef.current?.children || [],
                 {
-                    scale: 0.8,
-                    opacity: 0,
-                    y: 15
+                    opacity: 0
                 },
                 {
-                    scale: 1,
                     opacity: 1,
-                    y: 0,
-                    duration: 0.4,
+                    duration: 0.3,
                     stagger: 0.05
                 },
-                '-=0.3'
+                '-=0.2'
             );
 
             // Note text
             tl.fromTo(
                 noteRef.current,
                 {
-                    opacity: 0,
-                    y: 15
+                    opacity: 0
                 },
                 {
                     opacity: 1,
-                    y: 0,
-                    duration: 0.4
+                    duration: 0.3
                 },
-                '-=0.2'
+                '-=0.15'
             );
 
-            // Buttons - staggered reveal
+            // Buttons - staggered fade
             tl.fromTo(
                 buttonsRef.current?.children || [],
                 {
-                    y: 20,
-                    opacity: 0,
-                    scale: 0.95
+                    opacity: 0
                 },
                 {
-                    y: 0,
                     opacity: 1,
-                    scale: 1,
-                    duration: 0.4,
-                    stagger: 0.08
+                    duration: 0.3,
+                    stagger: 0.05
                 },
-                '-=0.2'
+                '-=0.15'
             );
         }, containerRef);
 
         return () => ctx.revert();
-    }, []);
-
-    // Subtle parallax effect on mouse move
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            if (!imageRef.current) return;
-
-            const { clientX, clientY } = e;
-            const { innerWidth, innerHeight } = window;
-
-            const x = (clientX / innerWidth - 0.5) * 20;
-            const y = (clientY / innerHeight - 0.5) * 20;
-
-            setMousePosition({ x, y });
-
-            gsap.to(imageRef.current, {
-                x: x * 0.5,
-                y: y * 0.5,
-                duration: 0.8,
-                ease: 'power2.out'
-            });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     return (

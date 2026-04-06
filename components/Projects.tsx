@@ -22,7 +22,7 @@ export default function Projects() {
                     end: 'bottom 20%',
                     toggleActions: 'play none none none',
                 },
-                defaults: { ease: 'power3.out' }
+                defaults: { ease: 'power2.out' }
             });
 
             // Section fade in
@@ -30,33 +30,29 @@ export default function Projects() {
                 sectionRef.current,
                 {
                     opacity: 0,
-                    y: 60
+                    y: 40
                 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.4
+                    duration: 0.5
                 }
             );
 
-            // Title animation with letter spacing and blur
+            // Title animation
             tl.fromTo(
                 titleRef.current,
                 {
-                    y: 40,
-                    opacity: 0,
-                    filter: 'blur(8px)',
-                    letterSpacing: '0.2em'
+                    y: 30,
+                    opacity: 0
                 },
                 {
                     y: 0,
                     opacity: 1,
-                    filter: 'blur(0px)',
-                    letterSpacing: '0.05em',
-                    duration: 0.4,
-                    ease: 'expo.out'
+                    duration: 0.5,
+                    ease: 'power2.out'
                 },
-                '-=0.35'
+                '-=0.3'
             );
 
             // Project cards cascading animation
@@ -157,36 +153,6 @@ export default function Projects() {
         }, sectionRef);
 
         return () => ctx.revert();
-    }, []);
-
-    // Subtle parallax effect on mouse move
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            const cards = document.querySelectorAll('.projects__card');
-
-            cards.forEach((card) => {
-                const rect = card.getBoundingClientRect();
-                const cardCenterX = rect.left + rect.width / 2;
-                const cardCenterY = rect.top + rect.height / 2;
-
-                const deltaX = (e.clientX - cardCenterX) / rect.width;
-                const deltaY = (e.clientY - cardCenterY) / rect.height;
-
-                const image = card.querySelector('.projects__img');
-
-                if (image) {
-                    gsap.to(image, {
-                        x: deltaX * 3,
-                        y: deltaY * 3,
-                        duration: 0.5,
-                        ease: 'power2.out'
-                    });
-                }
-            });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     const projects = [

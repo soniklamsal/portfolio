@@ -451,14 +451,12 @@ img {
   padding: 1.5rem;
   border-radius: 1rem;
   border: 1px solid var(--border-color);
-  will-change: transform, box-shadow;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
 }
 
 .skills__category--animated:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 30px var(--shadow-hover);
-  border-color: rgba(255, 59, 59, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--shadow-hover);
 }
 
 .skills__category h4 {
@@ -544,15 +542,14 @@ img {
   background-color: var(--container-color);
   border-radius: 1rem;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   border: 1px solid var(--border-color);
-  will-change: transform, box-shadow;
+  will-change: transform;
 }
 
 .projects__card--animated:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px var(--shadow-hover);
-  border-color: rgba(255, 59, 59, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px var(--shadow-hover);
 }
 
 .projects__img-wrapper {
@@ -566,12 +563,11 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  transition: transform 0.3s ease;
 }
 
 .projects__card--animated:hover .projects__img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .projects__name {
@@ -627,16 +623,14 @@ img {
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   border: 1px solid var(--border-color);
   will-change: transform, box-shadow;
-  perspective: 1000px;
-  transform-style: preserve-3d;
 }
 
 .services__card--animated:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 15px 35px var(--shadow-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px var(--shadow-hover);
   border-color: var(--border-color);
 }
 
@@ -644,13 +638,11 @@ img {
   color: var(--white-color);
   margin: 0 auto 1rem;
   display: block;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  transition: all 0.3s ease;
 }
 
 .services__card--animated:hover .services__icon {
-  transform: scale(1.1);
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  transform: scale(1.05);
 }
 
 .services__name {
@@ -925,6 +917,57 @@ img {
 }
 
 /* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .home__container {
+    padding-top: 2rem;
+  }
+
+  .about__img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about__name {
+    font-size: var(--h2-font-size);
+  }
+
+  .about__buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about__buttons .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skills__list {
+    gap: 1rem;
+  }
+
+  .projects__container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .services__container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .experience__container {
+    padding: 1rem 0;
+  }
+
+  .contact__form {
+    padding: 0 1rem;
+  }
+
+  .nav__list {
+    gap: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .home__container {
     grid-template-columns: repeat(2, 1fr);
@@ -933,6 +976,14 @@ img {
 
   .nav__list {
     gap: 3rem;
+  }
+
+  .projects__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

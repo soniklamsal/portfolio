@@ -143,49 +143,6 @@ export default function Services() {
         return () => ctx.revert();
     }, []);
 
-    // Subtle parallax tilt on mouse move
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            const cards = document.querySelectorAll('.services__card--animated');
-
-            cards.forEach((card) => {
-                const rect = card.getBoundingClientRect();
-                const cardCenterX = rect.left + rect.width / 2;
-                const cardCenterY = rect.top + rect.height / 2;
-
-                const deltaX = (e.clientX - cardCenterX) / rect.width;
-                const deltaY = (e.clientY - cardCenterY) / rect.height;
-
-                gsap.to(card, {
-                    rotateY: deltaX * 2,
-                    rotateX: -deltaY * 2,
-                    duration: 0.5,
-                    ease: 'power2.out'
-                });
-            });
-        };
-
-        const handleMouseLeave = () => {
-            const cards = document.querySelectorAll('.services__card--animated');
-            cards.forEach((card) => {
-                gsap.to(card, {
-                    rotateY: 0,
-                    rotateX: 0,
-                    duration: 0.5,
-                    ease: 'power2.out'
-                });
-            });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseleave', handleMouseLeave);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseleave', handleMouseLeave);
-        };
-    }, []);
-
     const services = [
         {
             id: 1,
