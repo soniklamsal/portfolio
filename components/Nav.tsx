@@ -15,8 +15,8 @@ export default function Nav() {
             const scrollY = window.scrollY;
 
             sections.forEach(current => {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 150;
+                const sectionHeight = (current as HTMLElement).offsetHeight;
+                const sectionTop = (current as HTMLElement).offsetTop - 150;
                 const sectionId = current.getAttribute('id');
 
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
