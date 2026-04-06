@@ -194,7 +194,7 @@ export default function Experience() {
             id: 1,
             company: 'Sarvatra Inc',
             profession: 'Fullstack Web Development Intern',
-            date: 'Jan 2026 - Mar 2026',
+            date: 'Dec 2025 - Mar 2026',
             location: 'Kathmandu, Nepal',
             description: 'Completed a 3-month Full Stack Web Development internship where I developed responsive web applications using Next.js, Node.js, Express.js, and MongoDB. Implemented dynamic content, payment integrations, state management, and collaborated with the team on production workflows while gaining experience with Headless CMS.'
         },
