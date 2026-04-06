@@ -34,7 +34,7 @@ export default function Experience() {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1
+                    duration: 0.4
                 }
             );
 
@@ -50,9 +50,9 @@ export default function Experience() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.9
+                    duration: 0.4
                 },
-                '-=0.6'
+                '-=0.35'
             );
 
             // Timeline line animation
@@ -64,10 +64,10 @@ export default function Experience() {
                     },
                     {
                         height: '100%',
-                        duration: 1.2,
+                        duration: 0.5,
                         ease: 'power3.out'
                     },
-                    '-=0.5'
+                    '-=0.2'
                 );
             }
 
@@ -98,7 +98,7 @@ export default function Experience() {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.8
+                        duration: 0.5
                     },
                     `-=${0.6 - index * 0.14}`
                 );
@@ -114,7 +114,7 @@ export default function Experience() {
                         {
                             x: 0,
                             opacity: 1,
-                            duration: 0.6
+                            duration: 0.4
                         },
                         `-=${0.6}`
                     );
@@ -145,7 +145,7 @@ export default function Experience() {
                         {
                             y: 0,
                             opacity: 1,
-                            duration: 0.6
+                            duration: 0.4
                         },
                         `-=${0.5}`
                     );
@@ -177,7 +177,7 @@ export default function Experience() {
                         {
                             y: 0,
                             opacity: 1,
-                            duration: 0.7
+                            duration: 0.5
                         },
                         `-=${0.3}`
                     );

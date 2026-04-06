@@ -35,7 +35,7 @@ export default function Projects() {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1
+                    duration: 0.4
                 }
             );
 
@@ -53,10 +53,10 @@ export default function Projects() {
                     opacity: 1,
                     filter: 'blur(0px)',
                     letterSpacing: '0.05em',
-                    duration: 1,
+                    duration: 0.4,
                     ease: 'expo.out'
                 },
-                '-=0.6'
+                '-=0.35'
             );
 
             // Project cards cascading animation
@@ -80,7 +80,7 @@ export default function Projects() {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.8,
+                        duration: 0.5,
                         ease: 'expo.out'
                     },
                     `-=${0.6 - index * 0.15}`
@@ -97,7 +97,7 @@ export default function Projects() {
                         {
                             scale: 1,
                             filter: 'brightness(1)',
-                            duration: 1.2,
+                            duration: 0.7,
                             ease: 'power2.out'
                         },
                         `-=${0.8}`
@@ -115,7 +115,7 @@ export default function Projects() {
                         {
                             y: 0,
                             opacity: 1,
-                            duration: 0.6
+                            duration: 0.4
                         },
                         `-=${0.6}`
                     );
@@ -131,7 +131,7 @@ export default function Projects() {
                         {
                             y: 0,
                             opacity: 1,
-                            duration: 0.6
+                            duration: 0.4
                         },
                         `-=${0.5}`
                     );

@@ -6,6 +6,8 @@
   --hue: 358;
   --first-color: hsl(var(--hue), 80%, 49%);
   --first-color-alt: hsl(var(--hue), 76%, 45%);
+  --first-color-light: hsl(var(--hue), 80%, 60%);
+  --first-color-light-hover: hsl(var(--hue), 80%, 55%);
   
   /* Light mode colors */
   --white-color: hsl(0, 0%, 15%);
@@ -334,6 +336,10 @@ img {
   will-change: transform, opacity;
 }
 
+.about__name-highlight {
+  color: var(--first-color);
+}
+
 .about__contact {
   display: flex;
   flex-direction: column;
@@ -499,7 +505,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--first-color);
+  background-color: var(--first-color-light);
   color: var(--white-color);
   padding: .75rem 1.5rem;
   border-radius: 2rem;
@@ -510,19 +516,19 @@ img {
 }
 
 .button--animated:hover {
-  background-color: var(--first-color-alt);
+  background-color: var(--first-color-light-hover);
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 59, 59, 0.4);
 }
 
 .button--secondary {
   background-color: transparent;
-  border: 2px solid var(--first-color);
-  color: var(--first-color);
+  border: 2px solid var(--first-color-light);
+  color: var(--first-color-light);
 }
 
 .button--secondary:hover {
-  background-color: var(--first-color);
+  background-color: var(--first-color-light);
   color: var(--white-color);
   box-shadow: 0 10px 25px rgba(255, 59, 59, 0.3);
 }
@@ -586,7 +592,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--first-color);
+  color: var(--white-color);
   font-weight: var(--font-medium);
   background: none;
   cursor: pointer;
@@ -631,11 +637,11 @@ img {
 .services__card--animated:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 15px 35px var(--shadow-hover);
-  border-color: rgba(255, 59, 59, 0.3);
+  border-color: var(--border-color);
 }
 
 .services__icon {
-  color: var(--first-color);
+  color: var(--white-color);
   margin: 0 auto 1rem;
   display: block;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -644,7 +650,7 @@ img {
 
 .services__card--animated:hover .services__icon {
   transform: scale(1.1);
-  filter: drop-shadow(0 4px 12px rgba(255, 59, 59, 0.4));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
 }
 
 .services__name {
@@ -652,10 +658,6 @@ img {
   margin-bottom: 1rem;
   will-change: transform, opacity;
   transition: color 0.3s ease;
-}
-
-.services__card--animated:hover .services__name {
-  color: var(--first-color);
 }
 
 .services__description {

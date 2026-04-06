@@ -37,7 +37,7 @@ export default function About() {
                     scale: 1,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 1.2,
+                    duration: 0.7,
                     ease: 'expo.out'
                 }
             );
@@ -54,9 +54,9 @@ export default function About() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.8
+                    duration: 0.5
                 },
-                '-=0.6'
+                '-=0.4'
             );
 
             // Contact details - staggered animation
@@ -71,10 +71,10 @@ export default function About() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.6,
-                    stagger: 0.1
+                    duration: 0.4,
+                    stagger: 0.06
                 },
-                '-=0.4'
+                '-=0.3'
             );
 
             // Description text - fade in with delay
@@ -89,9 +89,9 @@ export default function About() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.8
+                    duration: 0.5
                 },
-                '-=0.3'
+                '-=0.2'
             );
 
             // Social icons - staggered reveal
@@ -106,10 +106,10 @@ export default function About() {
                     scale: 1,
                     opacity: 1,
                     y: 0,
-                    duration: 0.5,
-                    stagger: 0.08
+                    duration: 0.4,
+                    stagger: 0.05
                 },
-                '-=0.4'
+                '-=0.3'
             );
 
             // Note text
@@ -122,9 +122,9 @@ export default function About() {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.6
+                    duration: 0.4
                 },
-                '-=0.3'
+                '-=0.2'
             );
 
             // Buttons - staggered reveal
@@ -139,10 +139,10 @@ export default function About() {
                     y: 0,
                     opacity: 1,
                     scale: 1,
-                    duration: 0.6,
-                    stagger: 0.12
+                    duration: 0.4,
+                    stagger: 0.08
                 },
-                '-=0.3'
+                '-=0.2'
             );
         }, containerRef);
 
@@ -187,7 +187,7 @@ export default function About() {
             </div>
 
             <h3 className="about__name" ref={nameRef}>
-                Sonik Lamsal - <b>Fullstack Web Developer</b>
+                <span className="about__name-highlight">Sonik Lamsal</span> - <b>Fullstack Web Developer</b>
             </h3>
 
             <div className="about__contact" ref={contactRef}>
@@ -237,7 +237,7 @@ export default function About() {
                 <a href="#contact" className="button button--animated">
                     Contact Me
                 </a>
-                <a href="/Sonik-Lamsal-CV.pdf" download className="button button--secondary button--animated">
+                <a href="/sonik___cv.pdf" download className="button button--secondary button--animated">
                     <HiDownload size={18} />
                     Download CV
                 </a>

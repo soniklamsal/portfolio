@@ -35,7 +35,7 @@ export default function Services() {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.9
+                    duration: 0.4
                 }
             );
 
@@ -51,10 +51,10 @@ export default function Services() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.8,
+                    duration: 0.5,
                     ease: 'expo.out'
                 },
-                '-=0.5'
+                '-=0.3'
             );
 
             // Service cards grid animation
@@ -77,7 +77,7 @@ export default function Services() {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.7,
+                        duration: 0.5,
                         ease: 'expo.out'
                     },
                     `-=${0.5 - index * 0.1}`
@@ -96,7 +96,7 @@ export default function Services() {
                             scale: 1,
                             opacity: 1,
                             rotation: 0,
-                            duration: 0.6,
+                            duration: 0.4,
                             ease: 'back.out(1.2)'
                         },
                         `-=${0.6}`

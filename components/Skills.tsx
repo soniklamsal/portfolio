@@ -34,7 +34,7 @@ export default function Skills() {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.8
+                    duration: 0.5
                 }
             );
 
@@ -50,9 +50,9 @@ export default function Skills() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.8
+                    duration: 0.5
                 },
-                '-=0.4'
+                '-=0.25'
             );
 
             // Description animation
@@ -67,9 +67,9 @@ export default function Skills() {
                     y: 0,
                     opacity: 1,
                     filter: 'blur(0px)',
-                    duration: 0.7
+                    duration: 0.5
                 },
-                '-=0.5'
+                '-=0.3'
             );
 
             // Category cards animation with stagger
@@ -88,10 +88,10 @@ export default function Skills() {
                     opacity: 1,
                     scale: 1,
                     filter: 'blur(0px)',
-                    duration: 0.7,
-                    stagger: 0.12
+                    duration: 0.5,
+                    stagger: 0.08
                 },
-                '-=0.4'
+                '-=0.25'
             );
 
             // Animate inner content of each category
