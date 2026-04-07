@@ -5,9 +5,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 export const metadata: Metadata = {
   title: "Sonik Lamsal - Fullstack Web Developer",
   description: "Full Stack Web Developer with expertise in Next.js, Node.js, Express.js, MongoDB, and TypeScript. Building responsive, scalable web applications.",
-  icons: {
-    icon: '/favicon.png',
-  },
 };
 
 export default function RootLayout({
