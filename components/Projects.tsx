@@ -159,20 +159,23 @@ export default function Projects() {
         {
             id: 1,
             name: 'RWUA – Headless CMS Web Application',
-            image: '/projects-1.jpg',
+            image: '/rwua_screenshot.jpg',
             description: 'Full-stack web application for women empowerment using Next.js, GraphQL, Apollo Client, and Faust.js. Implemented WordPress ACF for dynamic content management.',
+            link: 'https://rwua-project.vercel.app/',
         },
         {
             id: 2,
             name: 'Ghumaudulau – Travel Booking Platform',
             image: '/projects-2.jpg',
             description: 'Full-stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
+            link: '#',
         },
         {
             id: 3,
             name: 'Job Portal – Recruitment Platform',
             image: '/projects-3.jpg',
             description: 'Full-stack job portal with role-based access, real-time chat using Firebase + sockets, and payment integration with Stripe & eSewa for job postings.',
+            link: '#',
         },
     ];
 
@@ -193,10 +196,15 @@ export default function Projects() {
                         </div>
                         <h3 className="projects__name">{project.name}</h3>
                         <p className="projects__description">{project.description}</p>
-                        <button className="projects__button projects__button--animated">
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projects__button projects__button--animated"
+                        >
                             <span>Visit Project</span>
                             <HiArrowRight className="projects__icon" />
-                        </button>
+                        </a>
                     </article>
                 ))}
             </div>
