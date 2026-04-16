@@ -166,7 +166,7 @@ export default function Projects() {
         {
             id: 2,
             name: 'Ghumaudulau – Travel Booking Platform',
-            image: '/projects-2.jpg',
+            image: '/ghumaudulau.jpg',
             description: 'Full-stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
             link: '#',
         },

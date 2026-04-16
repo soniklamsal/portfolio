@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
 
 export default function Nav() {
@@ -44,58 +45,77 @@ export default function Nav() {
     };
 
     return (
-        <nav className="nav">
-            <div className="nav__container container">
-                <button className="nav__toggle" onClick={toggleMenu} aria-label="Toggle menu">
-                    {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-                </button>
-                <ThemeToggle />
-                <ul className={`nav__list ${isMenuOpen ? 'nav__list--open' : ''}`}>
-                    <li>
-                        <a
-                            href="#home"
-                            className={`nav__link ${activeLink === 'home' ? 'active-link' : ''}`}
-                            onClick={(e) => handleLinkClick(e, 'home')}
-                        >
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#projects"
-                            className={`nav__link ${activeLink === 'projects' ? 'active-link' : ''}`}
-                            onClick={(e) => handleLinkClick(e, 'projects')}
-                        >
-                            Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#services"
-                            className={`nav__link ${activeLink === 'services' ? 'active-link' : ''}`}
-                            onClick={(e) => handleLinkClick(e, 'services')}
-                        >
-                            Services
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#experience"
-                            className={`nav__link ${activeLink === 'experience' ? 'active-link' : ''}`}
-                            onClick={(e) => handleLinkClick(e, 'experience')}
-                        >
-                            Experience
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#contact"
-                            className={`nav__link ${activeLink === 'contact' ? 'active-link' : ''}`}
-                            onClick={(e) => handleLinkClick(e, 'contact')}
-                        >
-                            Contact
-                        </a>
-                    </li>
+        <nav className="nav-modern">
+            <div className="nav-modern__container">
+                {/* Logo */}
+                <a
+                    href="#home"
+                    onClick={(e) => handleLinkClick(e, 'home')}
+                    className="nav-modern__logo"
+                >
+                    <span className="nav-modern__logo-text">
+                        <span className="nav-modern__logo-bracket">{'<'}</span>
+                        SL
+                        <span className="nav-modern__logo-bracket">{'/>'}</span>
+                    </span>
+                </a>
+
+                {/* Desktop Navigation */}
+                <ul className="nav-modern__menu">
+                    {[
+                        { id: 'home', label: 'Home' },
+                        { id: 'skills', label: 'Skills' },
+                        { id: 'projects', label: 'Projects' },
+                        { id: 'services', label: 'Services' },
+                        { id: 'experience', label: 'Experience' },
+                        { id: 'contact', label: 'Contact' }
+                    ].map((item) => (
+                        <li key={item.id}>
+                            <a
+                                href={`#${item.id}`}
+                                className={`nav-modern__link ${activeLink === item.id ? 'nav-modern__link--active' : ''}`}
+                                onClick={(e) => handleLinkClick(e, item.id)}
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Right Actions */}
+                <div className="nav-modern__actions">
+                    <ThemeToggle />
+                    <button
+                        onClick={toggleMenu}
+                        className="nav-modern__toggle"
+                        aria-label="Toggle menu"
+                    >
+                        {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={`nav-modern__mobile ${isMenuOpen ? 'nav-modern__mobile--open' : ''}`}>
+                <ul className="nav-modern__mobile-menu">
+                    {[
+                        { id: 'home', label: 'Home' },
+                        { id: 'skills', label: 'Skills' },
+                        { id: 'projects', label: 'Projects' },
+                        { id: 'services', label: 'Services' },
+                        { id: 'experience', label: 'Experience' },
+                        { id: 'contact', label: 'Contact' }
+                    ].map((item) => (
+                        <li key={item.id}>
+                            <a
+                                href={`#${item.id}`}
+                                className={`nav-modern__mobile-link ${activeLink === item.id ? 'nav-modern__mobile-link--active' : ''}`}
+                                onClick={(e) => handleLinkClick(e, item.id)}
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </nav>

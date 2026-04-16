@@ -166,13 +166,13 @@ export default function Skills() {
     ];
 
     return (
-        <div className="skills" ref={sectionRef}>
-            <h3 className="skills__title" ref={titleRef}>Technical Skills</h3>
+        <section className="skills section" id="skills" ref={sectionRef}>
+            <h2 className="section__title" ref={titleRef}>TECHNICAL SKILLS</h2>
             <p className="skills__description" ref={descriptionRef}>
                 Proficient in modern web technologies including TypeScript, JavaScript, Next.js, React,
                 Node.js, Express.js, MongoDB, GraphQL, REST APIs, and more.
             </p>
-            <div className="skills__list" ref={categoriesRef}>
+            <div className="skills__list container grid" ref={categoriesRef}>
                 {skills.map((skill) => (
                     <div key={skill.id} className="skills__category skills__category--animated">
                         <h4>{skill.category}</h4>
@@ -180,6 +180,6 @@ export default function Skills() {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
