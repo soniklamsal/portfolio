@@ -53,11 +53,13 @@ export default function Nav() {
                     onClick={(e) => handleLinkClick(e, 'home')}
                     className="nav-modern__logo"
                 >
-                    <span className="nav-modern__logo-text">
-                        <span className="nav-modern__logo-bracket">{'<'}</span>
-                        SL
-                        <span className="nav-modern__logo-bracket">{'/>'}</span>
-                    </span>
+                    <Image
+                        src="/pp__.png"
+                        alt="Sonik Lamsal"
+                        width={40}
+                        height={40}
+                        className="nav-modern__logo-img"
+                    />
                 </a>
 
                 {/* Desktop Navigation */}

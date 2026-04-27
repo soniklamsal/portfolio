@@ -93,16 +93,6 @@ export default function Hero() {
                         </div>
                     </h1>
 
-                    <div className="about__image-mobile" ref={imageRef}>
-                        <Image
-                            src="/pp__.png"
-                            alt="Sonik Lamsal"
-                            width={160}
-                            height={160}
-                            className="about__img"
-                        />
-                    </div>
-
                     <p className="about__description" ref={descriptionRef}>
                         Based in Kathmandu, Nepal. Experienced in developing full-stack web applications
                         using modern technologies like Next.js, React, Node.js, and MongoDB. Completed
@@ -158,19 +148,20 @@ export default function Hero() {
                 </div>
 
                 <div className="about__image-desktop">
-                    <Image
-                        src="/pp__.png"
-                        alt="Sonik Lamsal"
-                        width={240}
-                        height={240}
-                        className="about__img"
-                    />
+                    <div className="about__buttons about__buttons-desktop">
+                        <a href="#contact" className="button button--animated">
+                            Contact Me
+                        </a>
+                        <a href="/sonik___cv.pdf" download className="button button--secondary button--animated">
+                            Download CV
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <style jsx>{`
                 .about__name-typewriter {
-                    border-right: 2px solid var(--first-color);
+                    border-right: 2px solid var(--white-color);
                     white-space: nowrap;
                     overflow: hidden;
                     display: inline-block;
@@ -184,7 +175,7 @@ export default function Hero() {
 
                 @keyframes blink-caret {
                     from, to { border-color: transparent }
-                    50% { border-color: var(--first-color); }
+                    50% { border-color: var(--white-color); }
                 }
             `}</style>
         </>
