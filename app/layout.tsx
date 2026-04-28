@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import LenisProvider from "@/components/LenisProvider";
 
 export const metadata: Metadata = {
   title: "Sonik Lamsal - Fullstack Web Developer",
@@ -19,7 +20,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>
