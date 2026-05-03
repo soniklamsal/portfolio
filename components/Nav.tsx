@@ -56,8 +56,8 @@ export default function Nav() {
                     <Image
                         src="/pp___.jpeg"
                         alt="Sonik Lamsal"
-                        width={40}
-                        height={40}
+                        width={35}
+                        height={35}
                         className="nav-modern__logo-img"
                     />
                 </a>
