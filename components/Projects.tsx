@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Projects() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentVideo, setCurrentVideo] = useState<string | null>(null);
+    const [isVideoLoading, setIsVideoLoading] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -181,16 +182,22 @@ export default function Projects() {
     const openModal = (videoSrc: string) => {
         setCurrentVideo(videoSrc);
         setIsModalOpen(true);
+        setIsVideoLoading(true);
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
         setCurrentVideo(null);
+        setIsVideoLoading(false);
         document.body.style.overflow = 'auto';
         if (videoRef.current) {
             videoRef.current.pause();
         }
+    };
+
+    const handleVideoLoaded = () => {
+        setIsVideoLoading(false);
     };
 
     const handleProjectClick = (e: React.MouseEvent, project: any) => {
@@ -283,14 +290,26 @@ export default function Projects() {
                         >
                             <HiX size={24} />
                         </button>
+
+                        {/* Loading Spinner */}
+                        {isVideoLoading && (
+                            <div className="video-modal__loader">
+                                <div className="video-modal__spinner"></div>
+                                <p>Loading video...</p>
+                            </div>
+                        )}
+
                         <video
                             ref={videoRef}
                             controls
                             autoPlay
+                            preload="metadata"
                             className="video-modal__video"
+                            onLoadedData={handleVideoLoaded}
+                            onCanPlay={handleVideoLoaded}
+                            style={{ display: isVideoLoading ? 'none' : 'block' }}
                         >
                             <source src={currentVideo} type="video/mp4" />
-                            <source src={currentVideo.replace('.mp4', '.webm')} type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
