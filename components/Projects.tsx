@@ -214,7 +214,7 @@ export default function Projects() {
             image: '/ghumaudulau.jpg',
             description: 'Full-stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
             link: '#',
-            video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777816424/ghumaudulau_vbmm0d.mp4'
+            video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777817153/ghumaudulau___t1gy6o.mp4'
         },
         {
             id: 3,
