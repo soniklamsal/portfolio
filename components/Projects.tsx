@@ -224,6 +224,14 @@ export default function Projects() {
             link: '#',
             video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777816425/sajilotravel_klrrbv.mp4'
         },
+        {
+            id: 4,
+            name: 'Supgoro – E-commerce Marketplace',
+            image: '/cloned.jpg',
+            description: 'Next.js e-commerce website cloned from WordPress theme. Features product catalog, shopping cart, and modern marketplace design with responsive layout.',
+            link: '#',
+            video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777827244/Supgoro_-_Curated_Marketplace_-_Google_Chrome_2026-05-03_22-33-19_s34eda.mp4'
+        },
     ];
 
     return (
