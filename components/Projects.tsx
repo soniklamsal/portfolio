@@ -214,7 +214,7 @@ export default function Projects() {
             image: '/ghumaudulau.jpg',
             description: 'MERN stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
             link: '#',
-            video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777817153/ghumaudulau___t1gy6o.mp4'
+            video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777820762/ghumau______atynq5.mp4'
         },
         {
             id: 3,
