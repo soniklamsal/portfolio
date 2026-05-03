@@ -214,7 +214,7 @@ export default function Projects() {
             image: '/ghumaudulau.jpg',
             description: 'Full-stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
             link: '#',
-            video: '/ghumaudulau.mp4'
+            video: 'https://your-cdn-url.com/ghumaudulau.mp4' // Replace with your video URL
         },
         {
             id: 3,
@@ -222,7 +222,7 @@ export default function Projects() {
             image: '/sajilotravels.jpg',
             description: 'MERN stack travel website inspired by Nepal tours and travel platforms. Features tour packages, booking system, and destination guides with responsive design.',
             link: '#',
-            video: '/sajilotravel.mp4'
+            video: 'https://your-cdn-url.com/sajilotravel.mp4' // Replace with your video URL
         },
     ];
 
