@@ -1,17 +1,21 @@
 'use client';
 
 import Image from 'next/image';
-import { HiArrowRight } from 'react-icons/hi';
-import { useEffect, useRef } from 'react';
+import { HiArrowRight, HiX } from 'react-icons/hi';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentVideo, setCurrentVideo] = useState<string | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -155,6 +159,47 @@ export default function Projects() {
         return () => ctx.revert();
     }, []);
 
+    // Modal animation
+    useEffect(() => {
+        if (isModalOpen && modalRef.current) {
+            gsap.fromTo(
+                modalRef.current,
+                {
+                    opacity: 0,
+                    scale: 0.9
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                }
+            );
+        }
+    }, [isModalOpen]);
+
+    const openModal = (videoSrc: string) => {
+        setCurrentVideo(videoSrc);
+        setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setCurrentVideo(null);
+        document.body.style.overflow = 'auto';
+        if (videoRef.current) {
+            videoRef.current.pause();
+        }
+    };
+
+    const handleProjectClick = (e: React.MouseEvent, project: any) => {
+        if (project.video) {
+            e.preventDefault();
+            openModal(project.video);
+        }
+    };
+
     const projects = [
         {
             id: 1,
@@ -169,45 +214,79 @@ export default function Projects() {
             image: '/ghumaudulau.jpg',
             description: 'Full-stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
             link: '#',
+            video: '/ghumaudulau.mp4'
         },
         {
             id: 3,
-            name: 'Job Portal – Recruitment Platform',
-            image: '/projects-3.jpg',
-            description: 'Full-stack job portal with role-based access, real-time chat using Firebase + sockets, and payment integration with Stripe & eSewa for job postings.',
+            name: 'SajiloTravel – Nepal Tours & Travel',
+            image: '/sajilotravels.jpg',
+            description: 'MERN stack travel website inspired by Nepal tours and travel platforms. Features tour packages, booking system, and destination guides with responsive design.',
             link: '#',
+            video: '/sajilotravel.mp4'
         },
     ];
 
     return (
-        <section className="projects section" id="projects" ref={sectionRef}>
-            <h2 className="section__title" ref={titleRef}>RECENT PROJECTS</h2>
-            <div className="projects__container container grid" ref={containerRef}>
-                {projects.map((project) => (
-                    <article key={project.id} className="projects__card projects__card--animated">
-                        <div className="projects__img-wrapper">
-                            <Image
-                                src={project.image}
-                                alt={project.name}
-                                width={400}
-                                height={300}
-                                className="projects__img"
-                            />
-                        </div>
-                        <h3 className="projects__name">{project.name}</h3>
-                        <p className="projects__description">{project.description}</p>
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="projects__button projects__button--animated"
+        <>
+            <section className="projects section" id="projects" ref={sectionRef}>
+                <h2 className="section__title" ref={titleRef}>RECENT PROJECTS</h2>
+                <div className="projects__container container grid" ref={containerRef}>
+                    {projects.map((project) => (
+                        <article key={project.id} className="projects__card projects__card--animated">
+                            <div className="projects__img-wrapper">
+                                <Image
+                                    src={project.image}
+                                    alt={project.name}
+                                    width={400}
+                                    height={300}
+                                    className="projects__img"
+                                />
+                            </div>
+                            <h3 className="projects__name">{project.name}</h3>
+                            <p className="projects__description">{project.description}</p>
+                            <a
+                                href={project.link}
+                                target={project.video ? undefined : "_blank"}
+                                rel={project.video ? undefined : "noopener noreferrer"}
+                                className="projects__button projects__button--animated"
+                                onClick={(e) => handleProjectClick(e, project)}
+                            >
+                                <span>{project.video ? 'Watch Demo' : 'Visit Project'}</span>
+                                <HiArrowRight className="projects__icon" />
+                            </a>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            {/* Video Modal */}
+            {isModalOpen && currentVideo && (
+                <div className="video-modal" onClick={closeModal}>
+                    <div className="video-modal__overlay"></div>
+                    <div
+                        className="video-modal__content"
+                        ref={modalRef}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="video-modal__close"
+                            onClick={closeModal}
+                            aria-label="Close modal"
                         >
-                            <span>Visit Project</span>
-                            <HiArrowRight className="projects__icon" />
-                        </a>
-                    </article>
-                ))}
-            </div>
-        </section>
+                            <HiX size={24} />
+                        </button>
+                        <video
+                            ref={videoRef}
+                            src={currentVideo}
+                            controls
+                            autoPlay
+                            className="video-modal__video"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
