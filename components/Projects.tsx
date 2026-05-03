@@ -277,11 +277,12 @@ export default function Projects() {
                         </button>
                         <video
                             ref={videoRef}
-                            src={currentVideo}
                             controls
                             autoPlay
                             className="video-modal__video"
                         >
+                            <source src={currentVideo} type="video/mp4" />
+                            <source src={currentVideo.replace('.mp4', '.webm')} type="video/webm" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
