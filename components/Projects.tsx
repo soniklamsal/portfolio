@@ -212,7 +212,7 @@ export default function Projects() {
             id: 2,
             name: 'Ghumaudulau – Travel Booking Platform',
             image: '/ghumaudulau.jpg',
-            description: 'Full-stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
+            description: 'MERN stack travel booking platform with Stripe payment integration, dynamic destination pages, and blog section. Built with modern UI/UX principles.',
             link: '#',
             video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777817153/ghumaudulau___t1gy6o.mp4'
         },
