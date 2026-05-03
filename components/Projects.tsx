@@ -239,6 +239,14 @@ export default function Projects() {
             link: '#',
             video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777827244/Supgoro_-_Curated_Marketplace_-_Google_Chrome_2026-05-03_22-33-19_s34eda.mp4'
         },
+        {
+            id: 5,
+            name: 'Digital Nepal Hub – Figma to React',
+            image: '/figmadesign.jpg',
+            description: 'Static React website built from Figma design references. Pixel-perfect implementation showcasing design-to-code conversion with responsive layouts and modern UI components.',
+            link: '#',
+            video: 'https://res.cloudinary.com/dr54mqokd/video/upload/v1777828650/Digital_Nepal_Hub_-_Google_Chrome_2026-05-03_22-59-41_rzyw7u.mp4'
+        },
     ];
 
     return (
