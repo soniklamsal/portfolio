@@ -180,7 +180,9 @@ export default function Projects() {
     }, [isModalOpen]);
 
     const openModal = (videoSrc: string) => {
-        setCurrentVideo(videoSrc);
+        // Optimize video URL for mobile devices
+        const optimizedVideoSrc = getOptimizedVideoUrl(videoSrc);
+        setCurrentVideo(optimizedVideoSrc);
         setIsModalOpen(true);
         setIsVideoLoading(true);
         document.body.style.overflow = 'hidden';
@@ -198,6 +200,27 @@ export default function Projects() {
 
     const handleVideoLoaded = () => {
         setIsVideoLoading(false);
+    };
+
+    // Optimize video URL for mobile devices using Cloudinary transformations
+    const getOptimizedVideoUrl = (url: string): string => {
+        // Check if it's a mobile device
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+        // Only optimize Cloudinary URLs
+        if (!url.includes('cloudinary.com')) {
+            return url;
+        }
+
+        // For mobile: reduce quality and resolution for faster loading
+        if (isMobile) {
+            // Insert transformation parameters before /upload/
+            // q_auto:low = automatic quality (low), w_640 = max width 640px, f_auto = best format
+            return url.replace('/upload/', '/upload/q_auto:low,w_640,f_auto/');
+        } else {
+            // For desktop: use auto quality and format
+            return url.replace('/upload/', '/upload/q_auto:good,f_auto/');
+        }
     };
 
     const handleProjectClick = (e: React.MouseEvent, project: any) => {
@@ -311,7 +334,8 @@ export default function Projects() {
                             ref={videoRef}
                             controls
                             autoPlay
-                            preload="metadata"
+                            playsInline
+                            preload="none"
                             className="video-modal__video"
                             onLoadedData={handleVideoLoaded}
                             onCanPlay={handleVideoLoaded}
